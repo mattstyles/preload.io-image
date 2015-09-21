@@ -18,15 +18,20 @@ class IOError extends Error {
 
 
 export default class ImageLoader {
-    constructor() {
+    constructor( opts ) {
+        this.opts = Object.assign({
+            blob: false
+        }, opts )
         this.name = 'imageLoader'
         this.match = /jpg$|jpeg$|png$/
     }
 
     async load( ctx, opts ) {
         // @TODO optionally use old school tag loading
+        let res = null
+        let blob = null
         try {
-            let res = await fetch( opts.url )
+            res = await fetch( opts.url )
                 .then( response => {
                     if ( response.status >=200 && response.status < 300 ) {
                         return response
@@ -38,19 +43,22 @@ export default class ImageLoader {
                     })
                 })
 
-            let blob = await res.blob()
-
-            ctx.emit( EVENTS.LOAD, {
-                id: opts.id,
-                status: res.status,
-                res: blob
-            })
+            if ( this.opts.blob ) {
+                blob = await res.blob()
+            }
         } catch( err ) {
             ctx.emit( EVENTS.LOAD_ERROR, {
                 id: opts.id,
                 status: err.status,
                 res: err
             })
+            return
         }
+
+        ctx.emit( EVENTS.LOAD, {
+            id: opts.id,
+            status: res.status,
+            res: blob || res
+        })
     }
 }
