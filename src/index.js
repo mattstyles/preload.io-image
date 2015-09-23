@@ -1,4 +1,4 @@
-
+import 'regenerator/runtime'
 import 'whatwg-fetch'
 import { EVENTS } from 'preload.io'
 
