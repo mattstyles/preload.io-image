@@ -31,7 +31,7 @@ export default class ImageLoader {
         let res = null
         let blob = null
         try {
-            res = await fetch( opts.url )
+            res = await fetch( opts.resource )
                 .then( response => {
                     if ( response.status >=200 && response.status < 300 ) {
                         return response
