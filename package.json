@@ -24,9 +24,7 @@
     "babelify": "^7.2.0",
     "browserify": "^12.0.1",
     "tape": "^4.2.0",
-    "zuul": "^3.6.0"
-  },
-  "dependencies": {
+    "zuul": "^3.6.0",
     "regenerator": "^0.8.40",
     "whatwg-fetch": "^0.9.0"
   }
