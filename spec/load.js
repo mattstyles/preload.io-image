@@ -6,9 +6,9 @@ import { EVENTS } from 'preload.io'
 import ImageLoader from '../lib'
 
 tape( 'Should expose imageLoader as the name of the module loader', t => {
-    t.plan( 1 )
+  t.plan( 1 )
 
-    let imageLoader = new ImageLoader()
+  let imageLoader = new ImageLoader()
 
-    t.equal( imageLoader.name, 'imageLoader' )
+  t.equal( imageLoader.name, 'imageLoader' )
 })

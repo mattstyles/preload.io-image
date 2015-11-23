@@ -2,9 +2,28 @@
 
 > Preload.io loader for images
 
-```shell
+## Installation
+
+```sh
 npm i -S preload.io-image
 ```
+
+## Polyfills
+
+Image requires a few polyfills to work everywhere, to give some flexibility they are not included by default.
+
+```sh
+npm i -S whatwg-fetch regenerator
+```
+
+```js
+import 'regenerator/runtime'
+import 'whatwg-fetch'
+```
+
+`Regenerator` is currently a requirement for the async stuff, but a version is included with `babel-polyfill` so if you’re using that then you’re good to go. Use whichever version of `fetch` you like, if necessary.
+
+There will be a fairly obvious console error logged if these are omitted.
 
 ## Getting Started
 
@@ -35,20 +54,20 @@ The blob returned by fetch when grabbing an image can also be processed if you r
 
 ```js
 preloader.register( new ImageLoader({
-    blob: true
+  blob: true
 }))
 
 let id = preloader.load( '/assets/user.jpg' )
 
 preloader.on( EVENTS.LOAD, event => {
-    if ( event.id === id ) {
-        let image = new Image()
-        let urlCreator = window.URL || window.webkitURL
-        let imageURL = urlCreator.createObjectURL( event.res )
-        image.src = imageURL
+  if ( event.id === id ) {
+    let image = new Image()
+    let urlCreator = window.URL || window.webkitURL
+    let imageURL = urlCreator.createObjectURL( event.res )
+    image.src = imageURL
 
-        document.body.appendChild( image )
-    }
+    document.body.appendChild( image )
+  }
 })
 ```
 
