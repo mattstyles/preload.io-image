@@ -1,6 +1,6 @@
 {
   "name": "preload.io-image",
-  "version": "1.1.1",
+  "version": "1.1.2",
   "description": "Preload.io loader for images",
   "main": "lib/index.js",
   "scripts": {
