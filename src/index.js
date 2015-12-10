@@ -31,7 +31,7 @@ export default class ImageLoader {
     let blob = null
 
     try {
-      res = await fetch( opts.resource, Object.assign( this.opts, opts.options ) )
+      res = await fetch( opts.resource, Object.assign( {}, this.opts, opts.options ) )
         .then( response => {
           if ( response.ok || response.type === 'opaque' ) {
             return response
