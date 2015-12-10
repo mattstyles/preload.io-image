@@ -30,7 +30,6 @@ export default class ImageLoader {
     let res = null
     let blob = null
 
-    console.log( opts )
     try {
       res = await fetch( opts.resource, Object.assign( this.opts, opts.options ) )
         .then( response => {
