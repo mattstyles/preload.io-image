@@ -29,6 +29,8 @@ export default class ImageLoader {
     // @TODO optionally use old school tag loading
     let res = null
     let blob = null
+
+    console.log( opts )
     try {
       res = await fetch( opts.resource, Object.assign( this.opts, opts.options ) )
         .then( response => {

@@ -48,6 +48,31 @@ preloader.load( '/assets/avatar.jpg' )
 
 The `ImageLoader` will match on `jpg`, `jpeg` and `png` resources.
 
+## Passing options to fetch
+
+`ImageLoader` uses `fetch` to preload the resource, options you supply will be passed to `fetch`, in this order of precedence:
+
+```js
+preloader.load({
+  resource: 'image.jpg',
+  options: {
+    mode: 'no-cors'
+  }
+})
+```
+
+```js
+const imageLoader = new ImageLoader({
+  mode: 'no-cors'
+})
+```
+
+```js
+const preloader = new Preloader({
+  mode: 'no-cors'
+})
+```
+
 ## Accessing the blob
 
 The blob returned by fetch when grabbing an image can also be processed if you really need to but this is done at instantiation for all resources loaded with the loader (although there is nothing stopping you instantiating multiple image loaders)

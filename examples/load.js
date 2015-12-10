@@ -7,11 +7,11 @@ import { EVENTS } from 'preload.io'
 import ImageLoader from '../lib'
 
 let preloader = new Preloader({
-  // mode: 'no-cors' // also works here
+  // mode: 'no-cors-fail' // also works here
 })
 preloader.register( new ImageLoader({
   blob: false,
-  mode: 'no-cors-fail' // per instance options override
+  // mode: 'no-cors-fail' // per instance options override
 }))
 
 const CORS_URL = 'http://fillmurray.com/800/800?jpg'

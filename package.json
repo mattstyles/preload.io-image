@@ -4,6 +4,7 @@
   "description": "Preload.io loader for images",
   "main": "lib/index.js",
   "scripts": {
+    "prepublish": "npm run build",
     "prepack": "npm run build",
     "build": "babel src --out-dir lib",
     "watch": "babel src --out-dir lib --watch",
@@ -16,7 +17,7 @@
   "repository": "git://github.com/mattstyles/preload.io-image.git",
   "license": "ISC",
   "peerDependencies": {
-    "preload.io": "^1"
+    "preload.io": "^1.4.3"
   },
   "devDependencies": {
     "babel-cli": "^6.2.0",
