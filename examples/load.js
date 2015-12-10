@@ -7,7 +7,7 @@ import { EVENTS } from 'preload.io'
 import ImageLoader from '../lib'
 
 let preloader = new Preloader({
-  // mode: 'no-cors-fail' // also works here
+  // mode: 'no-cors' // also works here
 })
 preloader.register( new ImageLoader({
   blob: false,
