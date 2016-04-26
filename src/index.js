@@ -22,7 +22,7 @@ export default class ImageLoader {
       blob: false
     }, opts )
     this.name = 'imageLoader'
-    this.match = /jpg$|jpeg$|png$/
+    this.match = /jpg$|jpeg$|png$|gif$/
   }
 
   async load( ctx, opts ) {
